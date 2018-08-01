@@ -1,0 +1,18 @@
+<div class="cont_wrap">
+    {volist name="sidebars" id="vo"}
+    <div class="naviwrap">
+        <div class="navi00">
+            <ul>
+                <li class="txt"><a href="{:_url('index/Products/index', ['id' => $vo.id])}">{$vo.name}</a></li>
+            </ul>
+        </div>
+        {volist name="vo.archives" id="v"}
+        <div class="navi02">
+            <ul>
+                <li {if request()->param('id') == $v.id}class="txt1"{/if}><a href="{:_url('index/Products/item', ['id' => $v.id])}">{$v.title}</a></li>
+            </ul>
+        </div>
+        {/volist}
+    </div>
+    {/volist}
+</div>

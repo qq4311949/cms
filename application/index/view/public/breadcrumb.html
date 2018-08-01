@@ -1,0 +1,11 @@
+<div class="headline">
+    {volist name="breadcrumbs" id="vo"}
+    {if $i == 1}
+    <a class="home" href="{$vo.url}.html{if request()->get('lang')}?lang={:request()->get('lang')}{/if}" rel="nofollow">{$vo.name}</a> &gt;
+    {elseif $i == count($breadcrumbs) /}
+    <strong>{$vo.name}</strong>
+    {else /}
+    <a title="{$vo.name}" href="{$vo.url}.html{if request()->get('lang')}?lang={:request()->get('lang')}{/if}">{$vo.name}</a> &gt;
+    {/if}
+    {/volist}
+</div>

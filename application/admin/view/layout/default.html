@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+    <head>
+        {include file="public/meta" /}
+    </head>
+
+    <body data-type="index">
+        {include file="public/header" /}
+        <div class="tpl-page-container tpl-page-header-fixed">
+            {include file="public/sidebar" /}
+            <div class="tpl-content-wrapper">
+                <div class="tpl-portlet-components">
+                    <div class="portlet-title">
+                        <ol class="am-breadcrumb">
+                            <li><a href="{:_url('admin/Index/index')}" class="am-icon-dashboard">控制台</a></li>
+                            {volist name="breadcrumb" id="vo"}
+                            <li><a href="{if $i == 1}javascript:;{else/}{$vo.url}{/if}">{$vo.title}</a></li>
+                            {/volist}
+                        </ol>
+                    </div>
+                    {__CONTENT__}
+                </div>
+            </div>
+        </div>
+        {include file="public/script" /}
+    </body>
+</html>

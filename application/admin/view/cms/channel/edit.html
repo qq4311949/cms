@@ -1,0 +1,126 @@
+<div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">类型</label>
+                    <div class="am-u-sm-9 am-form-label" style="text-align:left;color:black">
+                        {volist name="types" id="vo"}
+                        <label for="{$vo.alias}" class="am-form-label-14">
+                            <input type="radio" id="{$vo.alias}" class="am-channel-type" name="type_id" {if $vo.id == $info.type_id}checked{/if} value="{$vo.id}" required> {$vo.name}
+                        </label>
+                        {/volist}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">上级栏目</label>
+                    <div class="am-u-sm-9">
+                        <select name="pid" required>
+                            <option value="0">顶级分类</option>
+                            {volist name="channeltree" id="vo"}
+                            <option value="{$vo.id}" {if $vo.id == $info.pid}selected{/if}>{$vo.name|raw}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label"></label>
+                    <div class="am-u-sm-9">
+                        <div class="am-panel am-panel-default">
+                            <div class="am-panel-bd am-font-14 bg-info">
+                                <strong>单页</strong>: 单页类型下可以发布文章,但不能添加子栏目<br>
+                                <strong>栏目</strong>: 栏目类型下不可以发布文章,但可以添加子栏目、列表、链接<br>
+                                <strong>列表</strong>: 列表类型下可以发布文章,但不能添加子栏目<br>
+                                <strong>链接</strong>: 链接类型下不可以发布文章和子级栏目<br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="name" class="am-u-sm-3 am-form-label">名称</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="name" name="name" placeholder="名称" value="{$info.name}" required />
+                        <small>输入你的名字，让我们记住你。</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="route" class="am-u-sm-3 am-form-label">路由</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="route" name="route" placeholder="路由" value="{$info.route}" required />
+                        <small>简短跳转链接</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">排序</label>
+                    <div class="am-u-sm-9">
+                        <input type="number" name="sort" placeholder="排序 / Sort" value="{$info.sort}" required/>
+                        <small>从大到小排序</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group type-page">
+                    <label class="am-u-sm-3 am-form-label">内容</label>
+                    <div class="am-u-sm-9">
+                        {:widget('common/Form/editor', ['content', '', $info.content])}
+                    </div>
+                </div>
+
+                <div class="am-form-group type-page type-channel type-list">
+                    <label class="am-u-sm-3 am-form-label-14">
+                        SEO管理 <i data-class="seo" data-toggle="0" class="am-icon-angle-double-down am-toggle"></i>
+                    </label>
+                </div>
+
+                <div class="am-form-group seo">
+                    <label for="title" class="am-u-sm-3 am-form-label">标题</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="title" name="title" placeholder="标题" value="{$info.title}" />
+                    </div>
+                </div>
+
+                <div class="am-form-group seo">
+                    <label for="keywords" class="am-u-sm-3 am-form-label">关键字</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="keywords" name="keywords" placeholder="关键字" value="{$info.keywords}" />
+                    </div>
+                </div>
+
+                <div class="am-form-group seo">
+                    <label for="description" class="am-u-sm-3 am-form-label">描述</label>
+                    <div class="am-u-sm-9">
+                        <textarea class="" rows="2" id="description" name="description" placeholder="输入描述">{$info.description}</textarea>
+                        <small>简介</small>
+                    </div>
+                </div>
+
+
+
+                <div class="am-form-group">
+                    <label for="user-status" class="am-u-sm-3 am-form-label">状态</label>
+                    <div class="am-u-sm-9">
+                        <div class="tpl-switch">
+                            <input type="checkbox" id="user-status" name="status" class="ios-switch bigswitch tpl-switch-btn" {if $info.status == 1}checked{/if} />
+                            <div class="tpl-switch-btn-view">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-9 am-u-sm-push-3">
+                        <input type="hidden" name="id" value="{$info.id}">
+                        <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

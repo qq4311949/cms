@@ -1,0 +1,76 @@
+<div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">所属组别 / Group</label>
+                    <div class="am-u-sm-9">
+                        <select name="group_id">
+                            {volist name="groups" id="vo"}
+                            <option value="{$vo.id}">{$vo.title}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-name" class="am-u-sm-3 am-form-label">用户名 / Name</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="user-name" name="username" placeholder="用户名 / Name" required />
+                        <small>输入你的名字，让我们记住你。</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-password" class="am-u-sm-3 am-form-label">密码 / Password</label>
+                    <div class="am-u-sm-9">
+                        <input type="password" id="user-password" name="password" placeholder="输入你的密码 / Password" required />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
+                    <div class="am-u-sm-9">
+                        <input type="email" id="user-email" name="email" placeholder="输入你的电子邮件 / Email" required />
+                        <small>邮箱你懂得...</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-phone" class="am-u-sm-3 am-form-label">电话 / Telephone</label>
+                    <div class="am-u-sm-9">
+                        <input type="tel" id="user-phone" name="telephone" placeholder="输入你的电话号码 / Telephone" required />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-intro" class="am-u-sm-3 am-form-label">简介 / Intro</label>
+                    <div class="am-u-sm-9">
+                        <textarea class="" rows="5" id="user-intro" name="remark" placeholder="输入个人简介" required></textarea>
+                        <small>250字以内写出你的一生...</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-status" class="am-u-sm-3 am-form-label">状态</label>
+                    <div class="am-u-sm-9">
+                        <div class="tpl-switch">
+                            <input type="checkbox" id="user-status" name="status" class="ios-switch bigswitch tpl-switch-btn" checked />
+                            <div class="tpl-switch-btn-view">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-9 am-u-sm-push-3">
+                        <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

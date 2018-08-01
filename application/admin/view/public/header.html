@@ -1,0 +1,81 @@
+    <header class="am-topbar am-topbar-inverse admin-header">
+        <div class="am-topbar-brand">
+            <a href="javascript:;" class="tpl-logo">
+                <img src="__IMG__/logo.png" alt="">
+            </a>
+        </div>
+        <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right">
+
+        </div>
+
+        <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+            <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list tpl-header-list">
+                <li class="am-hide-sm-only">
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="{:url('index/index/index')}" target="_blank">
+                        <span class="am-icon-home"></span> 首页
+                    </a>
+                </li>
+
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                        <span class="am-icon-language"></span> 语言 <span class="am-badge tpl-badge-success am-round">{:count($langs)}</span></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        {volist name="langs" id="vo"}
+                        <li>
+                            <a href="#" class="am-switch-lang" data-id="{$vo.id}">
+                                <span class="{if $vo.id == session('admin.lang_id')}am-icon-check-square-o{else /}am-icon-square-o{/if}"></span>  {$vo.name}
+                            </a>
+                        </li>
+                        {/volist}
+                    </ul>
+                </li>
+
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                        <span class="am-icon-comment-o"></span> 消息 <span class="am-badge tpl-badge-danger am-round">9</span></span>
+                    </a>
+                    <ul class="am-dropdown-content tpl-dropdown-content">
+                        <li class="tpl-dropdown-content-external">
+                            <h3>你有 <span class="tpl-color-danger">{$messages.num}</span> 条新消息</h3><a href="{:_url('cms/message')}">全部</a></li>
+                        <li>
+                            {volist name="messages.list" id="vo"}
+                            <a href="#" class="tpl-dropdown-content-message">
+                                <span class="tpl-dropdown-content-photo">
+                                    <img src="__IMG__/user02.png" alt="">
+                                </span>
+                                <span class="tpl-dropdown-content-subject">
+                                    <span class="tpl-dropdown-content-from"> {$vo.name} </span>
+                                    <span class="tpl-dropdown-content-time"> {$vo.update_at} </span>
+                                </span>
+                                <span class="tpl-dropdown-content-font">{$vo.message}</span>
+                            </a>
+                            {/volist}
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen" class="tpl-header-list-link"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+
+                <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
+                    <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
+                        <span class="tpl-header-list-user-nick">禁言小张</span><span class="tpl-header-list-user-ico"> <img src="__IMG__/user01.png"></span>
+                    </a>
+                    <ul class="am-dropdown-content">
+                        <li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
+                        <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+                        <li><a href="{:url('admin/Login/logout')}"><span class="am-icon-power-off"></span> 退出</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{:url('admin/Login/logout')}" class="tpl-header-list-link">
+                        <span class="am-icon-sign-out tpl-header-list-ico-out-size"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>

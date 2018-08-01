@@ -1,0 +1,103 @@
+<div class="tpl-block">
+    <div class="am-g tpl-amazeui-form">
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">菜单</label>
+                    <div class="am-u-sm-9">
+                        <div class="tpl-switch">
+                            <input type="checkbox" name="is_menu" class="ios-switch bigswitch tpl-switch-btn" checked/>
+                            <div class="tpl-switch-btn-view">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">父级</label>
+                    <div class="am-u-sm-9">
+                        <select name="pid" class="am-rule">
+                            <option value="0">无</option>
+                            {volist name="ruletree" id="vo"}
+                            <option value="{$vo.id}" data-name="{$vo.name}">{$vo.title|html_entity_decode}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">规则</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" name="name" placeholder="模块/控制器/方法" required/>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">标题</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" name="title" placeholder="标题 / Title" required/>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">图标</label>
+                    <div class="am-u-sm-9">
+                        <div class="am-input-group">
+                            <input type="text" name="icon" class="am-form-field" placeholder="图标 / Icon" />
+                            <span class="am-input-group-btn">
+                                <button class="am-btn am-btn-default" data-am-modal="{target: '#icon-modal'}"
+                                        type="button">搜索图标</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">排序</label>
+                    <div class="am-u-sm-9">
+                        <input type="number" name="sort" placeholder="排序 / Sort" value="0" required/>
+                        <small>从大到小排序</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">规则条件</label>
+                    <div class="am-u-sm-9">
+                        <textarea rows="2" name="condition" placeholder="规则条件 / Condition"></textarea>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">备注</label>
+                    <div class="am-u-sm-9">
+                        <textarea class="" rows="2" name="remark" placeholder="备注 / Remark"></textarea>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">状态</label>
+                    <div class="am-u-sm-9">
+                        <div class="tpl-switch">
+                            <input type="checkbox" name="status" class="ios-switch bigswitch tpl-switch-btn" checked/>
+                            <div class="tpl-switch-btn-view">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-9 am-u-sm-push-3">
+                        <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    {include file="auth/rule/icon" /}
+</div>

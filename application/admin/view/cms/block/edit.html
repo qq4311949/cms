@@ -1,0 +1,70 @@
+<div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">上级栏目</label>
+                    <div class="am-u-sm-9">
+                        <select name="channel_id" data-am-selected="{searchBox:0}" required>
+                            <option value="">点击选择...</option>
+                            {volist name="channeltree" id="vo"}
+                            <option value="{$vo.id}" {if $vo.id == $info.channel_id}selected{/if}>{$vo.name|raw}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="title" class="am-u-sm-3 am-form-label">标题</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="title" name="title" placeholder="名称" value="{$info.title}" required />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-u-xs-12 am-form-label">轮播图</label>
+                    <div class="am-u-sm-9 am-u-xs-12">
+                        {:widget('common/Form/upload', ['plupload-image', $info.image, false, false])}
+                        <ul class="row plupload-preview" id="p-image"></ul>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="url" class="am-u-sm-3 am-form-label">跳转地址</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="url" name="url" placeholder="跳转地址" value="{$info.url}" />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">内容</label>
+                    <div class="am-u-sm-9">
+                        {:widget('common/Form/editor', ['content', '', $info.content])}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-status" class="am-u-sm-3 am-form-label">状态</label>
+                    <div class="am-u-sm-9">
+                        <div class="tpl-switch">
+                            <input type="checkbox" id="user-status" name="status" class="ios-switch bigswitch tpl-switch-btn" {if $info.status == 1}checked{/if} />
+                            <div class="tpl-switch-btn-view">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-9 am-u-sm-push-3">
+                        <input type="hidden" name="id" value="{$info.id}">
+                        <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

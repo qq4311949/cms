@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html dir="ltr" class="ie6"><![endif]-->
+<!--[if IE 7]>
+<html dir="ltr" class="ie7"><![endif]-->
+<!--[if IE 8]>
+<html dir="ltr" class="ie8"><![endif]-->
+<!--[if gt IE 8]>
+<html dir="ltr"><!--<![endif]-->
+<head>
+    {include file="public/head" /}
+</head>
+<body>
+<section id="page">
+    <header id="header">
+        {include file="public/header" /}
+    </header>
+    <div class="wrap_headline">
+        {include file="public/breadcrumb" /}
+    </div>
+    <div class="wrap_cont_nav">
+        <div class="cont_nav"></div>
+    </div>
+    <div class="container">
+        <section id="middle">
+            <div class="middle_inner">
+                <section id="middle_content1">
+                    {__CONTENT__}
+                </section>
+            </div>
+        </section>
+    </div>
+</section>
+<footer id="footer">
+    {include file="public/footer" /}
+</footer>
+{include file="public/script" /}
+</body>
+</html>

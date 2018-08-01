@@ -1,0 +1,61 @@
+<div class="tpl-block">
+    <div class="am-g">
+        <div class="am-u-sm-12 am-u-md-6">
+            <div class="am-btn-toolbar">
+                <div class="am-btn-group am-btn-group-xs">
+                    {:build_toolbar('refresh,add,dels')}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <form class="am-form">
+                <table class="am-table am-table-striped am-table-hover table-main">
+                    <thead>
+                    <tr>
+                        <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                        <th>ID</th>
+                        <th>用户名</th>
+                        <th>所属组别</th>
+                        <th>电话</th>
+                        <th>Email</th>
+                        <th>修改日期</th>
+                        <th class="table-set">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="list" id="vo"}
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>{$vo.id}</td>
+                        <td><a href="#">{$vo.username}</a></td>
+                        <td>{$vo.group_name}</td>
+                        <td class="am-hide-sm-only">{$vo.telephone}</td>
+                        <td class="am-hide-sm-only">{$vo.email}</td>
+                        <td class="am-hide-sm-only">{$vo.update_at}</td>
+                        <td>
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    {:build_toolbar('edit,del', $vo)}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+                <div class="am-cf">
+
+                    <div class="am-fr">
+                        {$list|raw}
+                    </div>
+                </div>
+                <hr>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+<div class="tpl-alert"></div>

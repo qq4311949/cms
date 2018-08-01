@@ -1,0 +1,21 @@
+<div class="header_inner">
+    <img src="{$site.logo}" alt="" border="0" usemap="#Map"/>
+    <map name="Map">
+        <area shape="rect" coords="952,16,1023,38" href="/index?lang=zh-cn">
+        <area shape="rect" coords="1042,15,1127,37" href="/index?lang=en-us">
+        <area shape="rect" coords="957,55,1120,73" href="mailto:sales@hbjymetal.com">
+    </map>
+    <a class="resp_navigation" href="javascript:;"><span></span></a>
+    <div class="cl"></div>
+    <nav>
+        <ul id="navigation">
+            {volist name="navs" id="vo"}
+            <li {if condition="$vo.route eq $route"}class="current_page_item"{/if}>
+                <a href="/{$vo.route}.html{if request()->get('lang')}?lang={:request()->get('lang')}{/if}"><span>{$vo.name}</span></a>
+            </li>
+            {/volist}
+        </ul>
+        <div class="cl"></div>
+    </nav>
+    <div class="cl"></div>
+</div>

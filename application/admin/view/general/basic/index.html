@@ -1,0 +1,59 @@
+<div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+        <div class="tpl-content-scope">
+            <div class="note note-info">
+                <h3>网站基础配置</h3>
+                可以在此维护系统的变量,开启多语言网站设置
+            </div>
+        </div>
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+                <div class="am-form-group">
+                    <label for="is_i18n" class="am-u-sm-3 am-form-label">是否多语言</label>
+                    <div class="am-u-sm-9">
+                        <div class="tpl-switch">
+                            <input type="checkbox" id="is_i18n" name="is_i18n" class="ios-switch bigswitch tpl-switch-btn" {if condition="$info.is_i18n eq 1"}checked{/if} />
+                            <div class="tpl-switch-btn-view">
+                                <div>
+                                </div>
+                            </div>
+                            <small>默认关闭多语言，只开启中文站，开启多语言，可在语言管理设置</small>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="beian" class="am-u-sm-3 am-form-label">备案号</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="beian" name="beian" placeholder="备案号" value="{$info.beian}" />
+                        <small><a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">工信部备案查询</a></small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="version" class="am-u-sm-3 am-form-label">版本号</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="version" name="version" value="{$info.version|default='1.0.0'}" required />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="timezone" class="am-u-sm-3 am-form-label">时区</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="timezone" name="timezone" value="{$info.timezone|default='Asia/Shanghai'}" required />
+                        <small><a href="http://www.php.net/manual/zh/timezones.php" target="_blank">可以选择的时区</a></small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-9 am-u-sm-push-3">
+                        <input type="hidden" name="id" value="{$info.id}">
+                        <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

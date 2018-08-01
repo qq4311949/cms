@@ -1,0 +1,78 @@
+<div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">上级轮播图 / Carousel</label>
+                    <div class="am-u-sm-9">
+                        <select name="pid" data-am-selected="{searchBox: 0}">
+                            <option value="0">无</option>
+                            {volist name="carouseltree" id="vo"}
+                            <option value="{$vo.id}">{$vo.title|raw}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="title" class="am-u-sm-3 am-form-label">标题 / Title</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="title" name="title" placeholder="标题 / Title" required />
+                        <small>轮播图title</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-u-xs-12 am-form-label">轮播图 / Image</label>
+                    <div class="am-u-sm-9 am-u-xs-12">
+                        {:widget('common/Form/upload', ['plupload-image', '', true])}
+                        <ul class="row plupload-preview" id="p-image"></ul>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="url" class="am-u-sm-3 am-form-label">跳转地址 / Url</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="url" name="url" placeholder="跳转地址 / Url" />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="ext" class="am-u-sm-3 am-form-label">扩展 / Ext</label>
+                    <div class="am-u-sm-9">
+                        <textarea rows="2" id="ext" name="ext" placeholder="扩展 / Ext"></textarea>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">排序 / Sort</label>
+                    <div class="am-u-sm-9">
+                        <input type="number" name="sort" placeholder="排序 / Sort" value="0" required/>
+                        <small>从大到小排序</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-status" class="am-u-sm-3 am-form-label">状态</label>
+                    <div class="am-u-sm-9">
+                        <div class="tpl-switch">
+                            <input type="checkbox" id="user-status" name="status" class="ios-switch bigswitch tpl-switch-btn" checked />
+                            <div class="tpl-switch-btn-view">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-9 am-u-sm-push-3">
+                        <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

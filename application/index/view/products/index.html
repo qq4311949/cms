@@ -1,0 +1,38 @@
+<div class="entry">
+    <div class="one_first">
+        <aside class="widget widget_text">
+            <div class="textwidget">
+                <section class="post_type_shortcode four_blocks">
+                    <h3 class="cms_title">{$nav.name}</h3>
+                    <ul class="post_type_list1 responsiveContentSlider1">
+                        <li class="latest_item">
+                            {volist name="list" id="vo"}
+                            <article class="portfolio format-video">
+                                <div class="portfolio_inner">
+                                    <a href="{:_url('index/Products/item', ['id' => $vo.id])}"></a>
+                                    <figure>
+                                        <img src="{$vo.image}" alt="" class="fullwidth"/>
+                                    </figure>
+                                    <div class="project_rollover" style="background-color:#33BEE5;">
+                                        <header class="entry-header">
+                                            <h6 class="entry-title">
+                                                <a href="{:_url('index/Products/item', ['id' => $vo.id])}">{$vo.title}</a>
+                                            </h6>
+                                            <ul class="cmsms_category"></ul>
+                                            <span class="cmsms_post_img"></span>
+                                        </header>
+                                        <div class="entry-content">
+                                            <p>{$vo.intro}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            {/volist}
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </aside>
+    </div>
+    <div class="cl"></div>
+</div>

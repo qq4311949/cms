@@ -1,0 +1,114 @@
+<div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">上级栏目 / Channel</label>
+                    <div class="am-u-sm-9">
+                        <select name="channel_id" data-am-selected="{searchBox: 1}" required>
+                            <option value="">点击选择...</option>
+                            {volist name="channeltree" id="vo"}
+                            <option value="{$vo.id}" {if $vo.id eq $info.channel_id}selected{/if}>{$vo.name|raw}</option>
+                            {/volist}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="title" class="am-u-sm-3 am-form-label">标题 / Title</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="title" name="title" placeholder="标题 / Title" value="{$info.title}" required />
+                        <small>与seo标题同一个</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">标签 / Tag</label>
+                    <div class="am-u-sm-9 am-form-label" style="text-align:left;color:black">
+                        <label for="normal" class="am-form-label-14">
+                            <input type="radio" id="normal" name="tag_id" value="0" {if condition="$info.tag_id eq 0"}checked{/if}> 正常
+                        </label>
+                        {volist name="tags" id="vo"}
+                        <label for="{$vo.alias}" class="am-form-label-14">
+                            <input type="radio" id="{$vo.alias}" name="tag_id" value="{$vo.id}" {if condition="$info.tag_id eq $vo.id"}checked{/if}> {$vo.name}
+                        </label>
+                        {/volist}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-u-xs-12 am-form-label">缩略图 / Image</label>
+                    <div class="am-u-sm-9 am-u-xs-12">
+                        {:widget('common/Form/upload', ['plupload-image', $info.image, true, false])}
+                        <ul class="row plupload-preview" id="p-image"></ul>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="url" class="am-u-sm-3 am-form-label">自定义URL / Url</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="url" name="url" placeholder="自定义URL / Url" value="{$info.url}" />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">排序 / Sort</label>
+                    <div class="am-u-sm-9">
+                        <input type="number" name="sort" placeholder="排序 / Sort" value="{$info.sort|default=0}" required/>
+                        <small>从大到小排序</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="intro" class="am-u-sm-3 am-form-label">简介 / Intro</label>
+                    <div class="am-u-sm-9">
+                        <textarea class="" rows="2" id="intro" name="intro" placeholder="输入简介">{$info.intro}</textarea>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">内容 / Content</label>
+                    <div class="am-u-sm-9">
+                        {:widget('common/Form/editor', ['content', '', $info.content])}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="keywords" class="am-u-sm-3 am-form-label">关键字 / Keywords</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="keywords" name="keywords" placeholder="关键字 / Keywords" value="{$info.keywords}" />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="description" class="am-u-sm-3 am-form-label">描述 / Description</label>
+                    <div class="am-u-sm-9">
+                        <textarea class="" rows="2" id="description" name="description" placeholder="输入描述">{$info.description}</textarea>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-status" class="am-u-sm-3 am-form-label">状态</label>
+                    <div class="am-u-sm-9">
+                        <div class="tpl-switch">
+                            <input type="checkbox" id="user-status" name="status" class="ios-switch bigswitch tpl-switch-btn" {if condition="$info.status eq 1"}checked{/if} />
+                            <div class="tpl-switch-btn-view">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-9 am-u-sm-push-3">
+                        <input type="hidden" name="id" value="{$info.id}">
+                        <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

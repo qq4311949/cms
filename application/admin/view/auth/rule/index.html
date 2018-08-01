@@ -1,0 +1,66 @@
+<div class="tpl-block">
+    <div class="am-g">
+        <div class="am-u-sm-12 am-u-md-6">
+            <div class="am-btn-toolbar">
+                <div class="am-btn-group am-btn-group-xs">
+                    {:build_toolbar('refresh,add,dels')}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-g">
+        <div class="am-u-sm-12">
+            <form class="am-form">
+                <table class="am-table am-table-striped am-table-hover table-main">
+                    <thead>
+                    <tr>
+                        <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                        <th class="table-id">ID</th>
+                        <th class="table-title">标题</th>
+                        <th class="table-name">规则</th>
+                        <th class="table-sort">排序</th>
+                        <th class="table-status">状态</th>
+                        <th class="table-menu">菜单</th>
+                        <th class="table-menu"><i class="am-icon-chevron-up"></i></th>
+                        <th class="table-date am-hide-sm-only">修改日期</th>
+                        <th class="table-set">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="list" id="vo"}
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>{$vo.id}</td>
+                        <td><a href="#">{$vo.title|raw}</a></td>
+                        <td>{$vo.name}</td>
+                        <td class="am-hide-sm-only">{$vo.sort}</td>
+                        <td class="am-hide-sm-only">{$vo.status}</td>
+                        <td class="am-hide-sm-only">{$vo.is_menu}</td>
+                        <td class="am-hide-sm-only"><i class="am-icon-sitemap"></i></td>
+                        <td class="am-hide-sm-only">{$vo.update_at}</td>
+                        <td>
+                            <div class="am-btn-toolbar">
+                                <div class="am-btn-group am-btn-group-xs">
+                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                                        <a href="{:_url('edit', ['id' => $vo.id])}">
+                                            <span class="am-icon-pencil-square-o"></span> 编辑
+                                        </a>
+                                    </button>
+                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only">
+                                        <a href="{:_url('del', ['id' => $vo.id])}">
+                                            <span class="am-icon-trash-o"></span> 删除
+                                        </a>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+    </div>
+</div>
+<div class="tpl-alert"></div>

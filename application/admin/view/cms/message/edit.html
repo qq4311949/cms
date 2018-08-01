@@ -1,0 +1,37 @@
+<div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+
+                <div class="am-form-group">
+                    <label for="name" class="am-u-sm-3 am-form-label">名称</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="name" name="name" placeholder="名称" value="{$info.name}" disabled/>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="email" class="am-u-sm-3 am-form-label">邮箱</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="email" name="email" placeholder="邮箱" value="{$info.email}" disabled/>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="other" class="am-u-sm-3 am-form-label">其它联系方式</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="other" name="other" value="{$info.other}" disabled/>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">消息内容</label>
+                    <div class="am-u-sm-9">
+                        <textarea name="message" disabled>{$info.message}</textarea>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

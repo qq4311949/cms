@@ -1,0 +1,215 @@
+<section id="top">
+    <div class="top_inner">
+        <div class="wrap_rev_slider">
+            <div id="rev_slider_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
+                <div id="rev_slider" class="rev_slider fullwidthabanner"
+                     style="display:none; max-height:400px; height:400px;">
+                    <ul>
+                        {volist name="carousels" id="vo"}
+                        <li data-transition="random" data-slotamount="7" {if condition="$i eq 1"}data-masterspeed="300"{/if}>
+                            <img alt="" src="{$vo.image}"/>
+                            {volist name="vo.childlist" id="v"}
+                            <div {$v.ext}>
+                                <img alt="" src="{$v.image}"/>
+                            </div>
+                            {/volist}
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+            <script type="text/javascript">
+
+                var tpj = jQuery;
+
+                tpj.noConflict();
+
+                var revapi2;
+
+                tpj(document).ready(function () {
+
+                    if (tpj.fn.cssOriginal != undefined)
+                        tpj.fn.css = tpj.fn.cssOriginal;
+
+                    if (tpj('#rev_slider').revolution == undefined)
+                        revslider_showDoubleJqueryError('#rev_slider');
+                    else
+                        revapi2 = tpj('#rev_slider').show().revolution(
+                            {
+                                delay: 9000,
+                                startwidth: 1160,
+                                startheight: 450,
+                                hideThumbs: 200,
+
+                                thumbWidth: 100,
+                                thumbHeight: 50,
+                                thumbAmount: 5,
+
+                                navigationType: "bullet",
+                                navigationArrows: "solo",
+                                navigationStyle: "round",
+
+                                touchenabled: "on",
+                                onHoverStop: "on",
+
+                                navigationHAlign: "center",
+                                navigationVAlign: "bottom",
+                                navigationHOffset: 0,
+                                navigationVOffset: 21,
+
+                                soloArrowLeftHalign: "left",
+                                soloArrowLeftValign: "center",
+                                soloArrowLeftHOffset: 0,
+                                soloArrowLeftVOffset: 0,
+
+                                soloArrowRightHalign: "right",
+                                soloArrowRightValign: "center",
+                                soloArrowRightHOffset: 0,
+                                soloArrowRightVOffset: 0,
+
+                                shadow: 1,
+                                fullWidth: "on",
+
+                                stopLoop: "off",
+                                stopAfterLoops: -1,
+                                stopAtSlide: -1,
+
+                                shuffle: "off",
+
+                                hideSliderAtLimit: 0,
+                                hideCaptionAtLimit: 0,
+                                hideAllCaptionAtLilmit: 0,
+                                startWithSlide: 0
+                            });
+
+                });	//ready
+
+            </script>
+            <div class="cl"></div>
+        </div>
+    </div>
+</section>
+<section id="middle">
+    <div class="middle_inner">
+        <section id="middle_content">
+            <div class="entry">
+                <div class="one_third aligncenter">
+                    <div class="featured_block">
+                        <div class="cmsms_services_icon">
+                            <img alt="" class="aligncenter" src="__STATIC__/images/img/about_1.jpg">
+                        </div>
+                        <h2>{:lang('icon1')}</h2>
+                        <p>{:lang('icon1 intro')}</p>
+                    </div>
+                </div>
+                <div class="one_third aligncenter">
+                    <div class="featured_block">
+                        <div class="cmsms_services_icon">
+                            <img alt="" class="aligncenter" src="__STATIC__/images/img/about_2.jpg">
+                        </div>
+                        <h2>{:lang('icon2')}</h2>
+                        <p>{:lang('icon2 intro')}</p>
+                    </div>
+                </div>
+                <div class="one_third aligncenter">
+                    <div class="featured_block">
+                        <div class="cmsms_services_icon">
+                            <img alt="" class="aligncenter" src="__STATIC__/images/img/about_3.jpg">
+                        </div>
+                        <h2>{:lang('icon3')}</h2>
+                        <p>{:lang('icon3 intro')}</p>
+                    </div>
+                </div>
+                <div class="one_third aligncenter">
+                    <div class="featured_block">
+                        <div class="cmsms_services_icon">
+                            <img alt="" class="aligncenter" src="__STATIC__/images/img/about_4.jpg">
+                        </div>
+                        <h2>{:lang('icon4')}</h2>
+                        <p>{:lang('icon4 intro')}</p>
+                    </div>
+                </div>
+                <div class="cl"></div>
+                <div class="one_first">
+                    <aside class="widget widget_text">
+                        <div class="textwidget">
+                            <section class="post_type_shortcode four_blocks">
+                                <h3 class="cms_title">Hot Products</h3>
+                                <script type="text/javascript">
+                                    jQuery(document).ready(function () {
+                                        jQuery('.post_type_list').cmsmsResponsiveContentSlider({
+                                            sliderWidth: '100%',
+                                            sliderHeight: 'auto',
+                                            animationSpeed: 500,
+                                            animationEffect: 'slide',
+                                            animationEasing: 'easeInOutExpo',
+                                            pauseTime: 0,
+                                            activeSlide: 1,
+                                            touchControls: false,
+                                            pauseOnHover: false,
+                                            arrowNavigation: true,
+                                            slidesNavigation: false
+                                        });
+                                    });
+                                </script>
+                                <ul class="post_type_list responsiveContentSlider">
+                                    {volist name="hots" id="vo" mod="4"}
+                                    {eq name="mod" value="0"}
+                                    <li class="latest_item">
+                                    {/eq}
+                                        <article class="portfolio format-video">
+                                            <div class="portfolio_inner">
+                                                <a href="#"></a>
+                                                <figure>
+                                                    <img src="{$vo.image}" alt="" class="fullwidth"/>
+                                                </figure>
+                                                <div class="project_rollover" style="background-color:#33BEE5;">
+                                                    <header class="entry-header">
+                                                        <h6 class="entry-title">
+                                                            <a href="#">{$vo.title}</a>
+                                                        </h6>
+                                                        <ul class="cmsms_category"></ul>
+                                                        <span class="cmsms_post_img"></span>
+                                                    </header>
+                                                    <div class="entry-content">
+                                                        <p>{$vo.intro}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    {eq name="mod" value="3"}
+                                    </li>
+                                    {/eq}
+                                    {/volist}
+                                </ul>
+                            </section>
+                        </div>
+                    </aside>
+                </div>
+                <div class="cl"></div>
+                <div class="two_third">
+                    <div class="tour_content">
+                        <div class="tour_box" style="display:block;">
+                            <div class="tour_box_inner">
+                                <h5>{$about.title}</h5>
+                                {$about.content|raw}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="one_third last">
+                    <div class="cmsms_shortcode_testimonials">
+                        <h2>{$quality.title}</h2>
+                        <header class="entry-header">
+                            <blockquote>
+                                {$quality.content|raw}
+                            </blockquote>
+                        </header>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</section>

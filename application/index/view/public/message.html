@@ -1,0 +1,70 @@
+<div id="mail">{:lang('head')}</div>
+<div id="mail1">
+    <div class="span">
+        <b>{:lang('title')}</b>
+        <br>
+        <strong>{:lang('phone')}:</strong> +86-13832383753 <strong>{:lang('tel')}:</strong> +86-311-86906378
+        <br>
+        <strong>{:lang('fax')}:</strong> +86-311-86906378
+        <b>{:lang('e-mail')}:</b> <a href="mailto:sales@hbjymetal.com" rel="nofollow">sales@hbjymetal.com</a>
+    </div>
+</div>
+{if request()->get('lang') == 'en-us'}
+<p id="lei">
+    <b>When you contact us, please provide your detail requirements. That will help us give you a valid
+    quotation.</b>
+</p>
+{/if}
+<form id="contactform" method="post" action="{:url('index/Index/message')}">
+    <ol>
+        <li>
+            <label for="name">{:lang('name')} <span class="red">*</span></label>
+            <input id="name" class="text" name="name" type="text">
+        </li>
+        <li>
+            <label for="email">{:lang('email')} <span class="red">*</span></label>
+            <input id="email" class="text" name="email" type="text">
+        </li>
+        {if request()->get('lang') == 'zh-cn'}
+        <li>
+            <label for="other">{:lang('other')}</label>
+            <input id="other" class="text" name="other" type="text">
+        </li>
+        {/if}
+        <li>
+            <label for="message">{:lang('message')} <span class="red">*</span></label>
+            <textarea id="message" rows="6" cols="50" name="message"></textarea>
+        </li>
+        <li>
+            <label for="mycode">{:lang('verification code')}</label>
+            <input id="mycode" name="captcha" type="text" style="float: left;margin: 2px 0 2px 0">
+            <span>
+                <img src="{:url('index/Index/verify')}" align="captcha" onclick="this.src='{:url(\'index/Index/verify\')}?'+Math.random()" style="float: left;margin: 2px 0 2px 2px">
+            </span>
+        </li>
+        <li class="buttons">
+            <input style="background-image:url('__STATIC__/images/send.gif');width:105px;height: 25px;" type="button" onclick="check();">
+        </li>
+    </ol>
+</form>
+<script>
+    function check() {
+        var code = document.getElementById("mycode").value;
+        if(code == ""){
+            alert("Please enter the right verification code!");
+        }else{
+            var data = $('#contactform').serialize();
+            $.ajax({
+                type: 'POST',
+                url: $('#contactform').prop('action'),
+                data: data,
+                success: function(response) {
+                    layer.msg(response.msg);
+                    if (response.ret == 1) {
+                        $('#contactform')[0].reset();
+                    }
+                }
+            })
+        }
+    }
+</script>

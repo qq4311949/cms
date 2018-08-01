@@ -1,0 +1,95 @@
+<div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+                <div class="am-form-group">
+                    <label for="title" class="am-u-sm-3 am-form-label">网站名称</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="title" name="title" placeholder="网站名称" value="{$info.title}" required />
+                        <small>seo标题</small>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">商标</label>
+                    <div class="am-u-sm-9">
+                        {:widget('common/Form/upload', ['plupload-logo', $info.logo])}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">网站头像</label>
+                    <div class="am-u-sm-9">
+                        {:widget('common/Form/upload', ['plupload-ico', $info.ico])}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label-14">
+                        SEO管理 <i data-class="seo" data-toggle="0" class="am-icon-angle-double-down am-toggle"></i>
+                    </label>
+                </div>
+
+                <div class="am-form-group seo">
+                    <label for="keywords" class="am-u-sm-3 am-form-label">关键字</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="keywords" name="keywords" placeholder="关键字" value="{$info.keywords}" />
+                    </div>
+                </div>
+
+                <div class="am-form-group seo">
+                    <label for="description" class="am-u-sm-3 am-form-label">描述</label>
+                    <div class="am-u-sm-9">
+                        <textarea rows="2" id="description" name="description" placeholder="输入描述">{$info.description}</textarea>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">版权信息</label>
+                    <div class="am-u-sm-9">
+                        {:widget('common/Form/editor', ['copyright', '', $info.copyright])}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">状态</label>
+                    <div class="am-u-sm-9 am-form-label" style="text-align:left;color:black">
+                        <label for="normal" class="am-form-label-14">
+                            <input type="radio" id="normal" name="status" class="am-config-status" value="1" {if condition="$info.status eq 1"}checked{/if} required> 正常运行
+                        </label>
+                        <label for="repair" class="am-form-label-14">
+                            <input type="radio" id="repair" name="status" class="am-config-status" value="0" {if condition="$info.status eq 0"}checked{/if} required> 网站维护
+                        </label>
+                    </div>
+                </div>
+
+                <div class="am-form-group" id="am-config-status" style="display: none">
+                    <label class="am-u-sm-3 am-form-label">提示信息</label>
+                    <div class="am-u-sm-9">
+                        {:widget('common/Form/editor', ['tooltip', '', $info.tooltip])}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-9 am-u-sm-push-3">
+                        <input type="hidden" name="id" value="{$info.id}">
+                        <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">Amaze UI</div>
+        <div class="am-modal-bd">
+            Hello world！
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__LIB__/plupload/js/plupload.full.min.js"></script>
+

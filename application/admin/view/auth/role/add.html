@@ -1,0 +1,48 @@
+<div class="tpl-block ">
+    <div class="am-g tpl-amazeui-form">
+        <div class="am-u-sm-12 am-u-md-9">
+            <form class="am-form am-form-horizontal" method="POST" data-am-validator>
+                <div class="am-form-group">
+                    <label for="role-name" class="am-u-sm-3 am-form-label">角色</label>
+                    <div class="am-u-sm-9">
+                        <input type="text" id="role-name" name="title" placeholder="角色 / Role" required />
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">权限</label>
+                    <div class="am-u-sm-9">
+                        {:widget('common/Form/treeview', ['id' => 'treeview', 'name' => 'rules'])}
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-3 am-form-label">备注</label>
+                    <div class="am-u-sm-9">
+                        <textarea class="" rows="2" name="remark" placeholder="备注 / Remark"></textarea>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <label for="user-status" class="am-u-sm-3 am-form-label">状态</label>
+                    <div class="am-u-sm-9">
+                        <div class="tpl-switch">
+                            <input type="checkbox" id="user-status" name="status" class="ios-switch bigswitch tpl-switch-btn" checked />
+                            <div class="tpl-switch-btn-view">
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-9 am-u-sm-push-3">
+                        <button type="submit" class="am-btn am-btn-primary">保存修改</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
